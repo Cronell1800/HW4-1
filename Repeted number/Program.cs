@@ -17,8 +17,19 @@ namespace Repeted_number
                 {
                     if (userInputNumber.Contains("0"))
                     {
-                        strOfNumbers += userInputNumber;
-                        break;
+                        if (userInputNumber.Length == 1)
+                        {
+                            strOfNumbers += userInputNumber;
+                            break;
+                        } 
+                        else
+                        {
+                            int index = userInputNumber.IndexOf("0");
+                            userInputNumber = userInputNumber.Substring(0, index + 1);
+                            strOfNumbers += userInputNumber;
+                            break;
+                        }
+                        
                     } 
 
                     else
@@ -41,8 +52,9 @@ namespace Repeted_number
             {
                 strOfNumbers += userInputNumber;
             }
-
+            Console.WriteLine();
             Console.WriteLine(strOfNumbers);
+            Console.WriteLine();
 
             char lastCheckedNumber = '0';
             int repetedNumberCounter = 0;
